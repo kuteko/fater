@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F4691C561D1D8B4400DC3BC5 /* StoryboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4691C551D1D8B4400DC3BC5 /* StoryboardHelper.swift */; };
+		F4691C5A1D1D8C5300DC3BC5 /* 3.5inch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4691C591D1D8C5300DC3BC5 /* 3.5inch.storyboard */; };
 		F4EA0CF21D0BDE8A0009140B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EA0CF11D0BDE8A0009140B /* AppDelegate.swift */; };
 		F4EA0CF41D0BDE8A0009140B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EA0CF31D0BDE8A0009140B /* ViewController.swift */; };
 		F4EA0CF71D0BDE8A0009140B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4EA0CF51D0BDE8A0009140B /* Main.storyboard */; };
 		F4EA0CF91D0BDE8A0009140B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4EA0CF81D0BDE8A0009140B /* Assets.xcassets */; };
-		F4EA0CFC1D0BDE8A0009140B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4EA0CFA1D0BDE8A0009140B /* LaunchScreen.storyboard */; };
 		F4EA0D071D0BDE8A0009140B /* faterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EA0D061D0BDE8A0009140B /* faterTests.swift */; };
 		F4EA0D121D0BDE8A0009140B /* faterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EA0D111D0BDE8A0009140B /* faterUITests.swift */; };
 		F4EA0D221D0BE1FE0009140B /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EA0D211D0BE1FE0009140B /* BattleViewController.swift */; };
@@ -35,12 +36,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F4691C551D1D8B4400DC3BC5 /* StoryboardHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardHelper.swift; sourceTree = "<group>"; };
+		F4691C591D1D8C5300DC3BC5 /* 3.5inch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = 3.5inch.storyboard; path = ../3.5inch.storyboard; sourceTree = "<group>"; };
 		F4EA0CEE1D0BDE8A0009140B /* fater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4EA0CF11D0BDE8A0009140B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4EA0CF31D0BDE8A0009140B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F4EA0CF61D0BDE8A0009140B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F4EA0CF81D0BDE8A0009140B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F4EA0CFB1D0BDE8A0009140B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4EA0CFD1D0BDE8A0009140B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4EA0D021D0BDE8A0009140B /* faterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = faterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4EA0D061D0BDE8A0009140B /* faterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = faterTests.swift; sourceTree = "<group>"; };
@@ -102,9 +104,10 @@
 				F4EA0CF11D0BDE8A0009140B /* AppDelegate.swift */,
 				F4EA0CF31D0BDE8A0009140B /* ViewController.swift */,
 				F4EA0D211D0BE1FE0009140B /* BattleViewController.swift */,
+				F4691C551D1D8B4400DC3BC5 /* StoryboardHelper.swift */,
 				F4EA0CF51D0BDE8A0009140B /* Main.storyboard */,
+				F4691C591D1D8C5300DC3BC5 /* 3.5inch.storyboard */,
 				F4EA0CF81D0BDE8A0009140B /* Assets.xcassets */,
-				F4EA0CFA1D0BDE8A0009140B /* LaunchScreen.storyboard */,
 				F4EA0CFD1D0BDE8A0009140B /* Info.plist */,
 			);
 			path = fater;
@@ -233,7 +236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4EA0CFC1D0BDE8A0009140B /* LaunchScreen.storyboard in Resources */,
+				F4691C5A1D1D8C5300DC3BC5 /* 3.5inch.storyboard in Resources */,
 				F4EA0CF91D0BDE8A0009140B /* Assets.xcassets in Resources */,
 				F4EA0CF71D0BDE8A0009140B /* Main.storyboard in Resources */,
 			);
@@ -262,6 +265,7 @@
 			files = (
 				F4EA0D221D0BE1FE0009140B /* BattleViewController.swift in Sources */,
 				F4EA0CF41D0BDE8A0009140B /* ViewController.swift in Sources */,
+				F4691C561D1D8B4400DC3BC5 /* StoryboardHelper.swift in Sources */,
 				F4EA0CF21D0BDE8A0009140B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,14 +308,6 @@
 				F4EA0CF61D0BDE8A0009140B /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		F4EA0CFA1D0BDE8A0009140B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F4EA0CFB1D0BDE8A0009140B /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

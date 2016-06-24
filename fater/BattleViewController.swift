@@ -190,34 +190,21 @@ class BattleViewController: UIViewController, UIGestureRecognizerDelegate{
                 // 画像から特徴を抽出する
                 let features = detector.featuresInImage(ciImage, options: options)
                 
-                var resultString :[String] = ["DETECTED FACES:"]
+                var result: [(hasSmile: Bool, leftEyeClosed: Bool, rightEyeClosed: Bool)] = []
                 
                 for feature in features as! [CIFaceFeature] {
                     
-                    resultString.append("\(feature.hasSmile ? "YES" : "NO")") //笑ってる
-                    resultString.append("\(feature.leftEyeClosed ? "YES" : "NO")") //左目閉じてる
-                    resultString.append("\(feature.rightEyeClosed ? "YES" : "NO")") //右目閉じてる
-                
+                    result.append((feature.hasSmile, feature.leftEyeClosed, feature.rightEyeClosed))
                 }
                 
-                print(resultString)
-                
-                
-                if resultString[1] == "YES" {
-                
-                    self.playerAttack()
-                    
-                    if resultString[2] == "YES" || resultString[3] == "YES" {
-                        
-                        self.heal()
-                        
+                if result.count >= 1 {
+                    if result[0].hasSmile {
+                        self.playerAttack()
+                        if result[0].leftEyeClosed || result[0].rightEyeClosed {
+                            self.heal()
+                        }
                     }
                 }
-                
-                else {
-                
-                }
-                
                 
             })
         }
