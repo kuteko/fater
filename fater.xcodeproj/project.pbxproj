@@ -14,6 +14,7 @@
 		F4EA0CFC1D0BDE8A0009140B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4EA0CFA1D0BDE8A0009140B /* LaunchScreen.storyboard */; };
 		F4EA0D071D0BDE8A0009140B /* faterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EA0D061D0BDE8A0009140B /* faterTests.swift */; };
 		F4EA0D121D0BDE8A0009140B /* faterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EA0D111D0BDE8A0009140B /* faterUITests.swift */; };
+		F4EA0D221D0BE1FE0009140B /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EA0D211D0BE1FE0009140B /* BattleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		F4EA0D0D1D0BDE8A0009140B /* faterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = faterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4EA0D111D0BDE8A0009140B /* faterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = faterUITests.swift; sourceTree = "<group>"; };
 		F4EA0D131D0BDE8A0009140B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4EA0D211D0BE1FE0009140B /* BattleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				F4EA0CF11D0BDE8A0009140B /* AppDelegate.swift */,
 				F4EA0CF31D0BDE8A0009140B /* ViewController.swift */,
+				F4EA0D211D0BE1FE0009140B /* BattleViewController.swift */,
 				F4EA0CF51D0BDE8A0009140B /* Main.storyboard */,
 				F4EA0CF81D0BDE8A0009140B /* Assets.xcassets */,
 				F4EA0CFA1D0BDE8A0009140B /* LaunchScreen.storyboard */,
@@ -193,6 +196,7 @@
 				TargetAttributes = {
 					F4EA0CED1D0BDE8A0009140B = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = C578ECDZ7M;
 					};
 					F4EA0D011D0BDE8A0009140B = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -256,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4EA0D221D0BE1FE0009140B /* BattleViewController.swift in Sources */,
 				F4EA0CF41D0BDE8A0009140B /* ViewController.swift in Sources */,
 				F4EA0CF21D0BDE8A0009140B /* AppDelegate.swift in Sources */,
 			);
@@ -401,10 +406,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = fater/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = litech.com.fater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -412,10 +420,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = fater/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = litech.com.fater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -484,6 +495,7 @@
 				F4EA0D181D0BDE8A0009140B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F4EA0D191D0BDE8A0009140B /* Build configuration list for PBXNativeTarget "faterTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +504,7 @@
 				F4EA0D1B1D0BDE8A0009140B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F4EA0D1C1D0BDE8A0009140B /* Build configuration list for PBXNativeTarget "faterUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +513,7 @@
 				F4EA0D1E1D0BDE8A0009140B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
