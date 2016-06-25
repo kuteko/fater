@@ -13,9 +13,9 @@ import AVFoundation
 class BattleViewController: UIViewController, UIGestureRecognizerDelegate{
 
     let monsterArray:[String] = ["mob1","mob2","mob3","boss1"]
-    let monsterHP:[Int] = [100,200,300,500]
-    var monsternowHP:[Int] = [100,200,300,500]
-    var monsterAP:[Int] = [100,200,300,500]
+    let monsterHP:[Int] = [1000,2000,3000,5000]
+    var monsternowHP:[Int] = [1000,2000,3000,5000]
+    var monsterAP:[Int] = [300,400,500,600]
     let playerHP: Int = 2000
     var playernowHP: Int = 2000
     let playerMP: Int = 1000
@@ -34,7 +34,7 @@ class BattleViewController: UIViewController, UIGestureRecognizerDelegate{
     @IBOutlet var attackButton: UIButton!
     @IBOutlet var healButton: UIButton!
     @IBOutlet var nextButton: UIButton!
-    
+    @IBOutlet var imgView: UIImageView!
     
     var questcount: Int=0
     
@@ -170,16 +170,18 @@ class BattleViewController: UIViewController, UIGestureRecognizerDelegate{
                 let imageData:NSData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataBuffer)
                 
                 // JpegからUIImageを作成.
-                let image:UIImage = UIImage(data: imageData)!
+                let image: UIImage? = UIImage(data: imageData)
                 
                 //                // アルバムに追加.
                 //                UIImageWriteToSavedPhotosAlbum(image, self, nil, nil)
-                guard let cgImage = image.CGImage else {
+                guard let cgImage = image!.CGImage else {
                     return
                 }
                 
+
                 // storyboardに置いたimageViewからCIImageを生成する
                 let ciImage = CIImage(CGImage: cgImage)
+                
                 
                 // 顔認識なのでTypeをCIDetectorTypeFaceに指定する
                 let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
@@ -198,17 +200,25 @@ class BattleViewController: UIViewController, UIGestureRecognizerDelegate{
                 }
                 
                 if result.count >= 1 {
-                    if result[0].hasSmile {
+                    if result[0].hasSmile == true{
                         self.playerAttack()
                         if result[0].leftEyeClosed || result[0].rightEyeClosed {
                             self.heal()
                         }
                     }
+                    else{
+                        self.monsterAttack()
+                    }
+                    
                 }
+                
+              print(result)
                 
             })
         }
     }
+    
+    //検査結果なぜかわからないが、横向きの方がにん
 
     
     func initStatus() {
@@ -228,7 +238,6 @@ class BattleViewController: UIViewController, UIGestureRecognizerDelegate{
         
         if playernowHP < playerHP {
             
-            healButton.hidden = false
             playernowHP = playernowHP + (100 * (Int(rand()%10) + 1))
             //max超えたとき
             if playernowHP > playerHP {
@@ -326,11 +335,7 @@ class BattleViewController: UIViewController, UIGestureRecognizerDelegate{
         
         var finishedMessage:String!
         
-        if attackButton.hidden != true{
-            
-            attackButton.hidden = true
-            
-        }
+       
         
         if winPlayer == true {
             
