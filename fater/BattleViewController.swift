@@ -9,7 +9,6 @@
 import UIKit
 import AVFoundation
 
-
 class BattleViewController: UIViewController, UIGestureRecognizerDelegate{
 
     let monsterArray:[String] = ["mob1","mob2","mob3","boss1"]
@@ -34,7 +33,7 @@ class BattleViewController: UIViewController, UIGestureRecognizerDelegate{
     @IBOutlet var attackButton: UIButton!
     @IBOutlet var healButton: UIButton!
     @IBOutlet var nextButton: UIButton!
-    @IBOutlet var imgView: UIImageView!
+    @IBOutlet var imgView: SpringImageView!
     
     var questcount: Int=0
     
@@ -43,6 +42,10 @@ class BattleViewController: UIViewController, UIGestureRecognizerDelegate{
     var session:AVCaptureSession!
     var preView:UIView!
     var camera:AVCaptureDevice!
+    
+    let Damping: CGFloat = 0.7
+    let Velocity: CGFloat = 0.7
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -170,11 +173,14 @@ class BattleViewController: UIViewController, UIGestureRecognizerDelegate{
                 let imageData:NSData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataBuffer)
                 
                 // JpegからUIImageを作成.
-                let image: UIImage? = UIImage(data: imageData)
+                guard let image = UIImage(data: imageData) else {
+                    return
+                }
                 
-                //                // アルバムに追加.
-                //                UIImageWriteToSavedPhotosAlbum(image, self, nil, nil)
-                guard let cgImage = image!.CGImage else {
+                
+                
+                //UIImageからCGImageを作る際なぜか90度回転するそして193行目......
+                guard let cgImage = image.CGImage else {
                     return
                 }
                 
@@ -187,7 +193,7 @@ class BattleViewController: UIViewController, UIGestureRecognizerDelegate{
                 let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
                 
                 // 取得するパラメーターを指定する
-                let options = [CIDetectorSmile : true, CIDetectorEyeBlink : true]
+                let options: [String: AnyObject] = [CIDetectorSmile : true, CIDetectorEyeBlink : true, CIDetectorImageOrientation: UIImageOrientation.DownMirrored.rawValue] //謎のDownMirroredである
                 
                 // 画像から特徴を抽出する
                 let features = detector.featuresInImage(ciImage, options: options)
@@ -201,14 +207,33 @@ class BattleViewController: UIViewController, UIGestureRecognizerDelegate{
                 
                 if result.count >= 1 {
                     if result[0].hasSmile == true{
-                        self.playerAttack()
-                        if result[0].leftEyeClosed || result[0].rightEyeClosed {
-                            self.heal()
+                        
+                        if self.playernowMP == self.playerMP && result[0].leftEyeClosed && result[0].rightEyeClosed {
+                            
+                            self.specialAttack()
+                            
                         }
+                        else {
+                           
+                            self.playerAttack()
+
+                        }
+                        
+                        self.imgView.animation = "shake"
+                        self.imgView.animate()
                     }
+                   
+                    else if result[0].leftEyeClosed || result[0].rightEyeClosed {
+                        
+                            self.heal()
+                        
+                    }
+                
                     else{
+                  
                         self.monsterAttack()
-                    }
+                    
+                        }
                     
                 }
                 
@@ -218,7 +243,6 @@ class BattleViewController: UIViewController, UIGestureRecognizerDelegate{
         }
     }
     
-    //検査結果なぜかわからないが、横向きの方がにん
 
     
     func initStatus() {
@@ -244,6 +268,9 @@ class BattleViewController: UIViewController, UIGestureRecognizerDelegate{
                 playernowHP = playerHP
             }
             playerHP_bar.progress = Float(playernowHP) / Float(playerHP)
+            playerHP_label.text = "\(playernowHP)"
+            monsterHP_bar.progress = Float(monsternowHP[questcount]) / Float(monsterHP[questcount])
+            monsterHP_label.text = "\(monsternowHP[questcount])"
             
         }
                 
@@ -261,7 +288,40 @@ class BattleViewController: UIViewController, UIGestureRecognizerDelegate{
         
         monsternowHP[questcount] = monsternowHP[questcount] - Int(attack)
         //MPゲット
-        playernowMP = playernowMP + Int(attack)
+        playernowMP = playernowMP + Int(attack) * 2
+        
+        if playernowMP > playerMP {
+            
+            playernowMP = playerMP
+        }
+        
+        //モンスターのHPが0になったら
+        
+        if monsternowHP[questcount] <= 0 {
+            
+            monsternowHP[questcount] = 0
+            
+            finishBattle(true)
+        }
+        
+        playerMP_bar.progress = Float(playernowMP) / Float(playerMP)
+        playerMP_label.text = "\(playernowMP)"
+        monsterHP_bar.progress = Float(monsternowHP[questcount]) / Float(monsterHP[questcount])
+        monsterHP_label.text = "\(monsternowHP[questcount])"
+        
+        
+        monsterAttack()
+        
+    }
+    
+    //必殺技
+    func specialAttack(){
+        
+        let attack = Float(playerAP) + Float(playernowMP) * Float(Int(rand()%10) + 1) / 10
+        
+        monsternowHP[questcount] = monsternowHP[questcount] - Int(attack)
+
+        playernowMP = 0
         
         if playernowMP > playerMP {
             
