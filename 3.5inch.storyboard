@@ -1,43 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hyn-NJ-wiC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="GCt-vZ-j5I">
-            <objects>
-                <viewController id="hyn-NJ-wiC" customClass="ViewController" customModule="fater" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="U1V-JE-wWU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="startview.png" id="gkI-W6-nxQ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" id="Xd8-u7-oFQ">
-                                <rect key="frame" x="40" y="139" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eL5-6C-D1k">
-                                <rect key="frame" x="75" y="284" width="170" height="83"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="start.png"/>
-                                <connections>
-                                    <segue destination="kbi-Du-sOf" kind="modal" id="EpE-Lq-zy4"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="arC-GA-AQI" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="86" y="317"/>
-        </scene>
         <!--Battle View Controller-->
         <scene sceneID="PU4-e9-duT">
             <objects>
@@ -46,7 +13,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="haikei.png" id="6BH-0C-wk1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="haikei2.png" id="6BH-0C-wk1">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -107,7 +74,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="naphmob1.png" id="2Y7-au-Egi">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2Y7-au-Egi" customClass="SpringImageView" customModule="fater" customModuleProvider="target">
                                 <rect key="frame" x="57" y="55" width="207" height="173"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -129,12 +96,55 @@
             </objects>
             <point key="canvasLocation" x="484" y="306"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="4Rm-Ee-odV">
+            <objects>
+                <viewController id="0rj-IU-rci" customClass="ViewController" customModule="fater" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EYN-xi-hIc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QZr-dv-agI">
+                                <rect key="frame" x="36" y="299" width="249" height="124"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="mouthstart.png"/>
+                                <connections>
+                                    <segue destination="kbi-Du-sOf" kind="modal" id="4FJ-1f-ZRe"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye.png" id="yfL-Ws-SOZ">
+                                <rect key="frame" x="20" y="101" width="108" height="162"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="9je-U6-jey">
+                                <rect key="frame" x="0.0" y="449" width="320" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2.png" id="tqB-N3-NKN">
+                                        <rect key="frame" x="238" y="-3" width="74" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye.png" id="xbx-Xo-UwI">
+                                <rect key="frame" x="187" y="101" width="108" height="162"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9JJ-t5-Q4m" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="119" y="306"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="haikei.png" width="320" height="568"/>
-        <image name="logo.png" width="240" height="128"/>
-        <image name="naphmob1.png" width="240" height="219"/>
-        <image name="start.png" width="240" height="128"/>
-        <image name="startview.png" width="320" height="568"/>
+        <image name="eye.png" width="100" height="100"/>
+        <image name="haikei2.png" width="3024" height="4032"/>
+        <image name="logo2.png" width="240" height="128"/>
+        <image name="mouthstart.png" width="200" height="100"/>
     </resources>
 </document>

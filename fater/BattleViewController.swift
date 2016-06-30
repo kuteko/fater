@@ -11,10 +11,10 @@ import AVFoundation
 
 class BattleViewController: UIViewController, UIGestureRecognizerDelegate{
 
-    let monsterArray:[String] = ["mob1","mob2","mob3","boss1"]
-    let monsterHP:[Int] = [1000,2000,3000,5000]
-    var monsternowHP:[Int] = [1000,2000,3000,5000]
-    var monsterAP:[Int] = [300,400,500,600]
+    let monsterArray = [UIImage(named : "mob3.png")!,UIImage(named : "mob2.png")!,UIImage(named : "mob1.png")!]
+    let monsterHP:[Int] = [1000,2000,3000]
+    var monsternowHP:[Int] = [1000,2000,3000]
+    var monsterAP:[Int] = [300,400,500]
     let playerHP: Int = 2000
     var playernowHP: Int = 2000
     let playerMP: Int = 1000
@@ -30,9 +30,6 @@ class BattleViewController: UIViewController, UIGestureRecognizerDelegate{
     @IBOutlet var playerHP_label: UILabel!
     @IBOutlet var playerMP_label: UILabel!
     
-    @IBOutlet var attackButton: UIButton!
-    @IBOutlet var healButton: UIButton!
-    @IBOutlet var nextButton: UIButton!
     @IBOutlet var imgView: SpringImageView!
     
     var questcount: Int=0
@@ -54,6 +51,9 @@ class BattleViewController: UIViewController, UIGestureRecognizerDelegate{
         playerHP_bar.transform = CGAffineTransformMakeScale(1.0, 2.0)
         playerMP_bar.transform = CGAffineTransformMakeScale(1.0, 2.0)
         
+        questcount = Int(rand() % 3)
+        
+        imgView.image = monsterArray[questcount]
         
         monsterHP_label.text = "\(monsternowHP[questcount])"
         playerHP_label.text = "\(playernowHP)"
